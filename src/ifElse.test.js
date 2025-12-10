@@ -22,7 +22,7 @@ describe('ifElse', () => {
     expect(second).not.toHaveBeenCalled();
   });
 
-  it('should call the secont function when condition is false', () => {
+  it('should call the second function when condition is false', () => {
     condition.mockReturnValue(false);
 
     ifElse(condition, first, second);
@@ -61,5 +61,13 @@ describe('ifElse', () => {
     ifElse(condition, first, second);
 
     expect(second).toHaveBeenCalledWith();
+  });
+
+  it('should call condition without arguments', () => {
+    condition.mockReturnValue(true);
+
+    ifElse(condition, first, second);
+
+    expect(condition).toHaveBeenCalledWith();
   });
 });
